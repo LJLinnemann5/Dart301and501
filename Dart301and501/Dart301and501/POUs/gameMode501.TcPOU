@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="gameMode501" Id="{5685b6e9-7e36-4f3e-92c4-140f4724bdb5}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM gameMode501
+VAR
+	
+	// The satrting score for each player.
+	iStartValue : INT := 501;	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <LineIds Name="gameMode501">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

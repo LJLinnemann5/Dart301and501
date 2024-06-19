@@ -1,13 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1">
-  <POU Name="MAIN" Id="{40a5c440-309e-4fa5-8cc4-c4f078c698bd}">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="MAIN" Id="{40a5c440-309e-4fa5-8cc4-c4f078c698bd}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
+	iSelection : INT := 1;
+
 END_VAR
-]]>
-    </Declaration>
+]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[
+CASE iSelection OF
+	
+	1:
+	gameMode301();
+
+	2:
+	gameMode501():
+	
+
+END_CASE
+]]></ST>
     </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="8" Count="2" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="16" Count="1" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

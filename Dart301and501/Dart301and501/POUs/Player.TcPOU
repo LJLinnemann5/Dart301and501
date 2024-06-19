@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Player" Id="{be859fcf-6167-4c07-bf0f-51afc398156f}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Player
+VAR
+	iScoreValue :INT;
+	sName : STRING;	
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Property Name="Name" Id="{64974a64-178c-4793-a0f3-4c0ca1a98da7}">
+      <Declaration><![CDATA[PROPERTY Name : STRING]]></Declaration>
+      <Get Name="Get" Id="{f1ccf210-f8f6-417c-8f98-8591785ea4e9}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Name := sName;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{bd4aff2d-4ae1-434c-9305-4632005107cb}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[sName := Name;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="Score" Id="{e90bf12a-d274-4271-8ed9-9cfba22a2b3a}">
+      <Declaration><![CDATA[PROPERTY Score : INT]]></Declaration>
+      <Get Name="Get" Id="{aff5a276-3177-4421-8dd8-8c0d4affd5db}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Score := iScoreValue;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{2d372158-335c-4cc0-b4e6-0630bcda2b1e}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[iScoreValue := Score;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <LineIds Name="Player">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="Player.Name.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="Player.Name.Set">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="Player.Score.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="Player.Score.Set">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
