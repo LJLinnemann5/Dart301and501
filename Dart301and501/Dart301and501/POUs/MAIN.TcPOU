@@ -14,10 +14,7 @@ CASE iSelection OF
 	1:
 	gameMode301();
 
-	2:
-	gameMode501():
 	
-
 END_CASE
 ]]></ST>
     </Implementation>
@@ -25,10 +22,7 @@ END_CASE
       <LineId Id="8" Count="2" />
       <LineId Id="15" Count="0" />
       <LineId Id="24" Count="0" />
-      <LineId Id="16" Count="1" />
-      <LineId Id="25" Count="0" />
-      <LineId Id="23" Count="0" />
-      <LineId Id="12" Count="0" />
+      <LineId Id="36" Count="1" />
       <LineId Id="11" Count="0" />
       <LineId Id="2" Count="0" />
     </LineIds>

@@ -2,6 +2,8 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Player" Id="{be859fcf-6167-4c07-bf0f-51afc398156f}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK Player
+
+
 VAR
 	iScoreValue :INT;
 	sName : STRING;	

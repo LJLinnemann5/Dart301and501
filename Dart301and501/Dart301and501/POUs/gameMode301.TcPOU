@@ -6,16 +6,103 @@ VAR
 	// The satrting score for each player.
 	iStartValue : INT := 301;	
 	
+	// Number of players
+	iPlayerNumber :int := 1;
 	
-	
+	// Array of player objects
+	players : ARRAY [0..2] OF player;
 
+	i: INT;
+	bCheckWin : BOOL;
+	sWinner: STRING;
+	iStat: INT;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[// for loop to assign the inital scores and names to each player
+FOR i := 0 TO iPlayerNumber -1 BY 1 DO
+	players[i].Score := iStartValue;
+	players[i].Name := 'John';
+	
+END_FOR
+
+
+
+// Program will loop until a player has reached a score value of 0.
+WHILE NOT checkWin() DO 
+	
+
+	iStartValue := 0;
+
+	
+
+	
+END_WHILE
+
+// Checking who the winner was.
+FOR i := 0 TO iPlayerNumber -1 BY 1 DO
+	IF players[i].Score = 0 THEN
+		sWinner := players[i].Name;
+		
+	END_IF
+END_FOR]]></ST>
     </Implementation>
+    <Method Name="checkWin" Id="{4a9b9db6-ef82-4bda-bf99-153242a76982}">
+      <Declaration><![CDATA[METHOD checkWin : BOOL
+VAR_INPUT
+END_VAR
+
+VAR
+	bResult: BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[FOR i := 0 TO iPlayerNumber -1 DO
+	IF players[i].Score = 0 THEN
+		bResult := TRUE;
+		ELSE 
+		bResult := FALSE;
+	END_IF
+
+
+END_FOR
+
+checkWin := bResult;]]></ST>
+      </Implementation>
+    </Method>
     <LineIds Name="gameMode301">
+      <LineId Id="20" Count="0" />
       <LineId Id="5" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="15" Count="1" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="45" Count="1" />
+      <LineId Id="34" Count="1" />
+      <LineId Id="26" Count="1" />
+      <LineId Id="24" Count="1" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="39" Count="0" />
+    </LineIds>
+    <LineIds Name="gameMode301.checkWin">
+      <LineId Id="5" Count="1" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="18" Count="1" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="16" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
