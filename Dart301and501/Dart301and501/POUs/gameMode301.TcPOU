@@ -11,11 +11,18 @@ VAR
 	
 	// Array of player objects
 	players : ARRAY [0..2] OF player;
+	
+	// Array that stores the values of the throws
+	throws : ARRAY [1..3] OF INT;
+	
 
-	i: INT;
-	bCheckWin : BOOL;
-	sWinner: STRING;
-	iStat: INT;
+	i: INT;  // itterator 
+	sWinner: STRING;  // Variable to store winner name
+	bMiss: BOOL; // Boolean value incase you missed the dart board
+	j: INT; // itterator
+	iThrowSum: INT; // the sum of the thrown values
+	bChange: BOOL; // Boolean variable to see if there is a change on the dart board
+	iDartBoardChange: INT; // The value read from the dart board
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -24,6 +31,8 @@ FOR i := 0 TO iPlayerNumber -1 BY 1 DO
 	players[i].Score := iStartValue;
 	players[i].Name := 'John';
 	
+	i := i + 1;
+	
 END_FOR
 
 
@@ -31,13 +40,75 @@ END_FOR
 // Program will loop until a player has reached a score value of 0.
 WHILE NOT checkWin() DO 
 	
-
-	iStartValue := 0;
+	// For loop to go through all of the players
+	FOR i := 0 TO iPlayerNumber -1 BY 1 DO 
+		
+	
+		throws[1] := throws[2] := throws[3] := 0;
+		
+		// if the socre of the player is 0 exit the program
+		IF players[i].Score = 0 THEN 
+			EXIT;
+		END_IF
+		
+		
+		// For loop for each throw
+		FOR j := 1 TO 3 BY 1 DO 
+			
+			bMiss := FALSE;
+			iThrowSum :=0;
+			
+			// A loop waiting for a miss or change on dart board
+			WHILE NOT bChange AND NOT bMiss DO
+			
+			IF bMiss = TRUE OR bChange = TRUE THEN
+				EXIT;
+				
+			END_IF
+			END_WHILE
+			
+			// If you miss go to the next throw.
+			IF bMiss THEN 
+				j := j + 1;
+				CONTINUE;
+			END_IF
+			
+			throws[j] := iDartBoardChange;
+			
+			iThrowSum := iThrowSum + throws[j];
+			
+			// If the player goes over his current value go to the nextr player.
+			IF players[i].Score <= iThrowSum THEN
+				
+				EXIT;
+				
+			END_IF
+			
+			j := j + 1;
+		END_FOR
+		
+		IF players[i].Score = 0 THEN
+			EXIT;
+			
+		END_IF
+		
+		
+		
+		players[i].Score := calculateScore(players[i].Score, iThrowSum);
+		throws[1] := throws[2] := throws[3] := 0;
+		i := i + 1;
+	END_FOR
+	
+	
+	 
 
 	
 
 	
 END_WHILE
+
+
+
 
 // Checking who the winner was.
 FOR i := 0 TO iPlayerNumber -1 BY 1 DO
@@ -45,25 +116,59 @@ FOR i := 0 TO iPlayerNumber -1 BY 1 DO
 		sWinner := players[i].Name;
 		
 	END_IF
-END_FOR]]></ST>
+END_FOR
+
+RETURN;
+]]></ST>
     </Implementation>
+    <Method Name="calculateScore" Id="{87ade80c-3faf-4380-8151-901586b4434a}">
+      <Declaration><![CDATA[// Method that calculates the player score after throwing the darts.
+
+
+METHOD calculateScore : INT
+VAR_INPUT
+	
+	iCurrentScore : INT;
+	iThorwnValue : INT;
+END_VAR
+
+VAR 
+	iResult : INT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF iCurrentScore - iThorwnValue >= 0 THEN 
+	
+	iResult := iCurrentScore - iThorwnValue;
+	
+ELSE 
+	
+	iResult := 0;
+END_IF
+
+calculateScore := iResult;]]></ST>
+      </Implementation>
+    </Method>
     <Method Name="checkWin" Id="{4a9b9db6-ef82-4bda-bf99-153242a76982}">
-      <Declaration><![CDATA[METHOD checkWin : BOOL
+      <Declaration><![CDATA[// This mehod checks if any player has reached the score of 0.
+
+METHOD checkWin : BOOL
 VAR_INPUT
 END_VAR
 
 VAR
 	bResult: BOOL;
+	k: INT;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[FOR i := 0 TO iPlayerNumber -1 DO
-	IF players[i].Score = 0 THEN
+        <ST><![CDATA[FOR k := 0 TO iPlayerNumber -1 DO
+	IF players[k].Score = 0 THEN
 		bResult := TRUE;
 		ELSE 
 		bResult := FALSE;
 	END_IF
 
-
+	k := k + 1;
 END_FOR
 
 checkWin := bResult;]]></ST>
@@ -74,16 +179,66 @@ checkWin := bResult;]]></ST>
       <LineId Id="5" Count="0" />
       <LineId Id="19" Count="0" />
       <LineId Id="21" Count="0" />
+      <LineId Id="136" Count="1" />
       <LineId Id="15" Count="1" />
       <LineId Id="31" Count="0" />
       <LineId Id="30" Count="0" />
       <LineId Id="29" Count="0" />
       <LineId Id="23" Count="0" />
       <LineId Id="22" Count="0" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="170" Count="0" />
+      <LineId Id="102" Count="0" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="171" Count="0" />
+      <LineId Id="149" Count="2" />
+      <LineId Id="153" Count="1" />
+      <LineId Id="114" Count="0" />
+      <LineId Id="113" Count="0" />
+      <LineId Id="131" Count="0" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="155" Count="0" />
+      <LineId Id="138" Count="1" />
+      <LineId Id="79" Count="0" />
+      <LineId Id="140" Count="0" />
+      <LineId Id="142" Count="1" />
+      <LineId Id="145" Count="0" />
+      <LineId Id="144" Count="0" />
+      <LineId Id="116" Count="0" />
+      <LineId Id="156" Count="0" />
+      <LineId Id="162" Count="0" />
+      <LineId Id="157" Count="0" />
+      <LineId Id="163" Count="0" />
+      <LineId Id="158" Count="1" />
+      <LineId Id="105" Count="0" />
+      <LineId Id="141" Count="0" />
+      <LineId Id="146" Count="0" />
+      <LineId Id="106" Count="0" />
+      <LineId Id="108" Count="0" />
+      <LineId Id="127" Count="0" />
+      <LineId Id="123" Count="0" />
+      <LineId Id="164" Count="0" />
+      <LineId Id="124" Count="0" />
+      <LineId Id="148" Count="0" />
+      <LineId Id="125" Count="0" />
+      <LineId Id="107" Count="0" />
+      <LineId Id="121" Count="0" />
+      <LineId Id="132" Count="0" />
+      <LineId Id="165" Count="2" />
+      <LineId Id="169" Count="0" />
+      <LineId Id="168" Count="0" />
+      <LineId Id="110" Count="2" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="100" Count="1" />
+      <LineId Id="67" Count="0" />
       <LineId Id="45" Count="1" />
       <LineId Id="34" Count="1" />
       <LineId Id="26" Count="1" />
       <LineId Id="24" Count="1" />
+      <LineId Id="128" Count="2" />
       <LineId Id="44" Count="0" />
       <LineId Id="37" Count="0" />
       <LineId Id="36" Count="0" />
@@ -92,6 +247,17 @@ checkWin := bResult;]]></ST>
       <LineId Id="42" Count="0" />
       <LineId Id="41" Count="0" />
       <LineId Id="39" Count="0" />
+      <LineId Id="134" Count="0" />
+      <LineId Id="133" Count="0" />
+      <LineId Id="135" Count="0" />
+    </LineIds>
+    <LineIds Name="gameMode301.calculateScore">
+      <LineId Id="5" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="12" Count="4" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="17" Count="0" />
     </LineIds>
     <LineIds Name="gameMode301.checkWin">
       <LineId Id="5" Count="1" />

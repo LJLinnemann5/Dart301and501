@@ -10,7 +10,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{B1426C85-3391-4A76-B677-EB5D50B492CE}" Name="Dart301and501" PrjFilePath="Dart301and501\Dart301and501.plcproj" TmcFilePath="Dart301and501\Dart301and501.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{342F7B2C-6B3A-09CD-AA4C-9D5E3E236ECC}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Dart301and501\Dart301and501.tmc" TmcHash="{2C9D29EF-3E23-90BA-3FAC-7F7E2B531A0F}">
 					<Name>Dart301and501 Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Contexts>
