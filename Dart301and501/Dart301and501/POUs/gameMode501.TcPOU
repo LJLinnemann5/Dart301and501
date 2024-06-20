@@ -16,7 +16,6 @@ VAR
 	// Array that stores the values of the throws
 	throws : ARRAY [1..3] OF INT;
 	
-
 	i: INT;  				 // iterator 
 	sWinner: STRING;     	 // Variable to store winner name
 	bMiss: BOOL; 			 // Boolean value incase you missed the dart board
@@ -32,7 +31,6 @@ END_VAR
 FOR i := 0 TO iPlayerNumber -1 BY 1 DO
 	players[i].Score := iStartValue;
 	players[i].Name := 'John';
-	
 	i := i + 1;
 	
 END_FOR
@@ -95,16 +93,7 @@ WHILE NOT checkWin() DO
 		i := i + 1;
 	END_FOR
 	
-	
-	 
-
-	
-
-	
 END_WHILE
-
-
-
 
 // Checking who the winner was.
 FOR i := 0 TO iPlayerNumber -1 BY 1 DO
@@ -171,11 +160,15 @@ checkWin := bResult;]]></ST>
       </Implementation>
     </Method>
     <LineIds Name="gameMode501">
-      <LineId Id="12" Count="7" />
+      <LineId Id="12" Count="3" />
+      <LineId Id="17" Count="2" />
       <LineId Id="22" Count="6" />
       <LineId Id="30" Count="6" />
-      <LineId Id="38" Count="39" />
-      <LineId Id="80" Count="24" />
+      <LineId Id="38" Count="38" />
+      <LineId Id="125" Count="0" />
+      <LineId Id="80" Count="3" />
+      <LineId Id="90" Count="1" />
+      <LineId Id="95" Count="9" />
       <LineId Id="5" Count="0" />
     </LineIds>
     <LineIds Name="gameMode501.calculateScore">
