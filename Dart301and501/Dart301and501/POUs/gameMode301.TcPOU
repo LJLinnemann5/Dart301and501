@@ -16,10 +16,10 @@ VAR
 	throws : ARRAY [1..3] OF INT;
 	
 
-	i: INT;  // itterator 
+	i: INT;  // iterator 
 	sWinner: STRING;  // Variable to store winner name
 	bMiss: BOOL; // Boolean value incase you missed the dart board
-	j: INT; // itterator
+	j: INT; // iterator
 	iThrowSum: INT; // the sum of the thrown values
 	bChange: BOOL; // Boolean variable to see if there is a change on the dart board
 	iDartBoardChange: INT; // The value read from the dart board
