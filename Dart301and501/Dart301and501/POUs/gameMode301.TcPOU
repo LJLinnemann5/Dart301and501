@@ -3,7 +3,7 @@
   <POU Name="gameMode301" Id="{b1b8ea5c-e92d-4bdb-b2be-53885ca20a31}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM gameMode301
 VAR
-	// The satrting score for each player.
+	// The starting score for each player.
 	iStartValue : INT := 301;	
 	
 	// Number of players
@@ -46,7 +46,7 @@ WHILE NOT checkWin() DO
 	
 		throws[1] := throws[2] := throws[3] := 0;
 		
-		// if the socre of the player is 0 exit the program
+		// if the score of the player is 0 -> exit the program
 		IF players[i].Score = 0 THEN 
 			EXIT;
 		END_IF
@@ -77,7 +77,7 @@ WHILE NOT checkWin() DO
 			
 			iThrowSum := iThrowSum + throws[j];
 			
-			// If the player goes over his current value go to the nextr player.
+			// If the player goes over his current value go to the next player.
 			IF players[i].Score <= iThrowSum THEN
 				
 				EXIT;
